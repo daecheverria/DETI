@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 88532717}
   - component: {fileID: 88532716}
   m_Layer: 0
-  m_Name: A
+  m_Name: CuboDiamante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
