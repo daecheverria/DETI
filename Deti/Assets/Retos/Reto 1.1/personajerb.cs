@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class personajerb : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 5f;
     Vector3 moveDirection;
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed;
@@ -30,6 +29,7 @@ public class personajerb : MonoBehaviour
         if (context.canceled)
         {
             moveDirection = Vector3.zero;
+            rb.linearVelocity = Vector3.zero; 
         }
 
     }
