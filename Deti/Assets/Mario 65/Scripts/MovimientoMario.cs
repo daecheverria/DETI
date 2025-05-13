@@ -14,7 +14,6 @@ public class MovimientoMario : MonoBehaviour
     private Rigidbody rb;
 
     //saltos
-    private bool isGrounded = true;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] LayerMask groundLayer; // Capa del suelo
     [SerializeField] float groundCheckDistance = 0.1f; // Distancia para verificar si está en el suelo
