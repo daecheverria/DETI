@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,13 +12,16 @@ public class MarioController2 : MonoBehaviour
     int isWalkingHash = Animator.StringToHash("isWalking");
     int isRunningHash = Animator.StringToHash("isRunning");
     int isJumpingHash = Animator.StringToHash("isJumping");
+    int jumpCountHash = Animator.StringToHash("jumpCount");
     bool isJumpingAni;
 
 
     private Vector2 moveInput;
     private Vector3 moveDirection;
 
-    private float speed = 4f;
+    private float basespeed = 8f;
+    private float speed;
+
     private bool isMoving;
     private bool isRunning;
     private bool isRunningPressed;
@@ -28,13 +32,12 @@ public class MarioController2 : MonoBehaviour
     bool isJumping = false;
     float gravity = -9.81f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float groundCheckDistance = 0.1f;
+    [SerializeField] float groundCheckDistance = 0.2f;
     [SerializeField] Transform groundCheck;
     int jumpCount = 0;
     Dictionary<int, float> initialJumpVelocities = new Dictionary<int, float>();
     Dictionary<int, float> jumpGravities = new Dictionary<int, float>();
-    float minJumpDuration = 0.3f; 
-    float jumpTimer = 0f;
+    Coroutine currentJumpCoroutine = null;
 
 
     void Awake()
@@ -43,33 +46,56 @@ public class MarioController2 : MonoBehaviour
         animator = GetComponent<Animator>();
         VariablesSaltos();
         rb.useGravity = false;
+        speed = basespeed;
+        
     }
     void VariablesSaltos()
     {
         float timeToApex = maxJumpTime / 2f;
         gravity = -2 * maxJumpHeight / Mathf.Pow(timeToApex, 2);
         initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
+        float secondJumpGravity = (-2 * (maxJumpHeight*2.0f)) / Mathf.Pow((timeToApex * 1.25f), 2);
+        float secondJumpInitialVelocity = (2 * (maxJumpHeight*2.0f)) / (timeToApex * 1.25f);
+        float thirdJumpGravity = (-2 * (maxJumpHeight*3.0f)) / Mathf.Pow((timeToApex * 1.5f), 2);
+        float thirdJumpInitialVelocity = (2 * (maxJumpHeight*3.0f)) / (timeToApex * 1.5f);
+
+
+        initialJumpVelocities.Add(1, initialJumpVelocity);
+        initialJumpVelocities.Add(2, secondJumpInitialVelocity);
+        initialJumpVelocities.Add(3, thirdJumpInitialVelocity);
+
+
+        jumpGravities.Add(0, gravity);
+        jumpGravities.Add(1, gravity);
+        jumpGravities.Add(2, secondJumpGravity);
+        jumpGravities.Add(3, thirdJumpGravity);
+
     }
     void handleJump()
     {
         if (isJumpPressed && !isJumping && IsGrounded())
         {
-            
-            float jumpVelocity = initialJumpVelocity * 0.5f;
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
+            if (jumpCount < 3 && currentJumpCoroutine != null)
+            {
+                StopCoroutine(currentJumpCoroutine);
+            }
             animator.SetBool(isJumpingHash, true);
-            jumpTimer = 0f;
             isJumpingAni = true;
             isJumping = true;
+            jumpCount++;
+            animator.SetInteger(jumpCountHash, jumpCount);
+            float jumpVelocity = initialJumpVelocities[jumpCount] * 0.5f;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
         }
         else if (isJumping && !isJumpPressed && IsGrounded())
         {
-            jumpTimer += Time.fixedDeltaTime;
-            if (jumpTimer >= minJumpDuration)
-            {
                 isJumping = false;
-            }
         }
+    }
+    IEnumerator JumpReset()
+    {
+        yield return new WaitForSeconds(0.5f);
+        jumpCount = 0;
     }
     void Update()
     {
@@ -99,6 +125,12 @@ public class MarioController2 : MonoBehaviour
             {
                 animator.SetBool(isJumpingHash, false);
                 isJumpingAni = false;
+                currentJumpCoroutine = StartCoroutine(JumpReset());
+                if (jumpCount == 3)
+                {
+                    jumpCount = 0;
+                    animator.SetInteger(jumpCountHash, jumpCount);
+                }
             }
             float groundedGravity = -0.5f;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, groundedGravity, rb.linearVelocity.z);
@@ -106,14 +138,14 @@ public class MarioController2 : MonoBehaviour
         else if (isFalling)
         {
             float previousYVelocity = rb.linearVelocity.y;
-            float newYVelocity = previousYVelocity + gravity * fallingMultiplier * Time.deltaTime;
+            float newYVelocity = previousYVelocity + jumpGravities[jumpCount] * fallingMultiplier * Time.deltaTime;
             float nextYVelocity = Mathf.Max((previousYVelocity + newYVelocity) * 0.5f, -20f);
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, nextYVelocity, rb.linearVelocity.z);
         }
         else
         {
             float previousYVelocity = rb.linearVelocity.y;
-            float newYVelocity = previousYVelocity + gravity * Time.deltaTime;
+            float newYVelocity = previousYVelocity + jumpGravities[jumpCount] * Time.deltaTime;
             float nextYVelocity = (previousYVelocity + newYVelocity) * 0.5f;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, nextYVelocity, rb.linearVelocity.z);
         }
@@ -150,7 +182,7 @@ public class MarioController2 : MonoBehaviour
     public void OnRun(InputAction.CallbackContext context)
     {
         isRunningPressed = context.ReadValueAsButton();
-        speed = isRunningPressed ? 8f : 4f;
+        speed = isRunningPressed ? basespeed*2 : basespeed;
     }
     public void OnJump(InputAction.CallbackContext context)
     {
