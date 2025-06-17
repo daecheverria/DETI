@@ -167,10 +167,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8425302343719494481, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2489878164812318597, guid: cb24aba6ec2c83e439a91dd7be910257, type: 3}
     - target: {fileID: -8253809037792553884, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8048427014072162575, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7557540490364101082, guid: e29db707087fe5445b282a1e1a535b55, type: 3}
     - target: {fileID: -7785694269365155704, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -183,6 +191,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7045211228187273812, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6741721896690259993, guid: cb24aba6ec2c83e439a91dd7be910257, type: 3}
     - target: {fileID: -6386748252901691974, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -223,6 +235,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1574879762066236689, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6741721896690259993, guid: cb24aba6ec2c83e439a91dd7be910257, type: 3}
     - target: {fileID: -166553442984486605, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -242,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_Name
       value: ImageToStl.com_peach_castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1011855572035469632, guid: f4ff9e8338d34734dbbdc2ee4e579d5b, type: 3}
       propertyPath: m_IsActive
