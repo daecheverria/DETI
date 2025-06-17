@@ -34,7 +34,7 @@ public class MarioController2 : MonoBehaviour
     bool isJumping = false;
     float gravity = -9.81f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float groundCheckDistance = 0.2f;
+    [SerializeField] float groundCheckDistance = 0.1f;
     [SerializeField] Transform groundCheck;
     int jumpCount = 0;
     Dictionary<int, float> initialJumpVelocities = new Dictionary<int, float>();
@@ -75,7 +75,7 @@ public class MarioController2 : MonoBehaviour
     }
     void handleJump()
     {
-        if (isJumpPressed && !isJumping && IsGrounded())
+        if (isJumpPressed && !isJumping && IsGrounded() && jumpCount < 3)
         {
             if (jumpCount < 3 && currentJumpCoroutine != null)
             {
@@ -88,11 +88,13 @@ public class MarioController2 : MonoBehaviour
             animator.SetInteger(jumpCountHash, jumpCount);
             audioSource.PlayOneShot(jumpSounds[jumpCount - 1]);
             float jumpVelocity = initialJumpVelocities[jumpCount] * 0.5f;
+            Debug.Log("Salto aplicado");
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
+            //rb.AddForce(new Vector3(0, initialJumpVelocities[jumpCount]/2, 0), ForceMode.Impulse);
         }
         else if (isJumping && !isJumpPressed && IsGrounded())
         {
-                isJumping = false;
+            isJumping = false;
         }
     }
     IEnumerator JumpReset()
@@ -100,7 +102,7 @@ public class MarioController2 : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         jumpCount = 0;
     }
-    void Update()
+    void FixedUpdate()
     {
         handleAnimation();
         rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
@@ -196,7 +198,6 @@ public class MarioController2 : MonoBehaviour
         else if (context.canceled)
         {
             isJumpPressed = false;
-            Debug.Log("Jump Released");
         }
     }
     bool IsGrounded()
