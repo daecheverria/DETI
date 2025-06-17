@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,20 +15,38 @@ public class MovimientoMario : MonoBehaviour
 
     private Rigidbody rb;
 
-    //saltos
-    private bool isGrounded = true;
-    [SerializeField] float jumpForce = 5f;
-    [SerializeField] LayerMask groundLayer; // Capa del suelo
-    [SerializeField] float groundCheckDistance = 0.1f; // Distancia para verificar si está en el suelo
-    [SerializeField] Transform groundCheck; // Transform para verificar el suelo
-    private int jumpCount = 0; // Contador de saltos
+    [Header("Configuracion de salto")]
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] float groundCheckDistance = 0.1f;
+    [SerializeField] Transform groundCheck;
+    private int jumpCount = 0;
+    private bool isJumping = false;
+    private float jumpStartTime;
+    private float jumpVelocity;
+    private float maxJumpTime = 5f;
+    private float maxJumpHeight = 10f;
+    Dictionary<int, float> jumpVelocities = new Dictionary<int, float>();
+    Dictionary<int, float> jumpGravities = new Dictionary<int, float>();
+    float gravity;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        variablesSalto();
     }
+    void variablesSalto()
+    {
+        float timeToApex = maxJumpTime / 2;
+        gravity = (-2 * maxJumpHeight) / Mathf.Pow((timeToApex * 1.25f), 2) * 1.1f;
+        jumpVelocity = (2 * (maxJumpHeight)) / (timeToApex * 1.25f);
+        float secondJumpGravity = (-2 * maxJumpHeight + 10) / Mathf.Pow((timeToApex * 1.25f), 2) * 1.1f;
+        float secondJumpInitialVelocity = (2 * (maxJumpHeight + 10))/ (timeToApex * 1.25f);
+        float thirdJumpGravity = (-2 * maxJumpHeight + 20) / Mathf.Pow((timeToApex * 1.5f), 2) * 1.0f;
+        float thirdJumpInitialVelocity = (2 * (maxJumpHeight + 20)) / (timeToApex * 1.5f);
+        jumpVelocities.Add(1, jumpVelocity);
+        jumpVelocities.Add(2, secondJumpInitialVelocity); 
+        jumpVelocities.Add(3, thirdJumpInitialVelocity);}
 
-    // Estas se conectan desde el Inspector
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -51,15 +71,20 @@ public class MovimientoMario : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started && IsGrounded())
         {
-            if (IsGrounded())
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if(jumpCount >3){
+                StopCoroutine("JumpReset");
             }
+            isJumping = true;
+            jumpCount += 1;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocities[jumpCount], rb.linearVelocity.z);
         }
-
-
+    }
+    IEnumerator JumpReset()
+    {
+        yield return new WaitForSeconds(0.25f);
+        jumpCount = 0;
     }
     bool IsGrounded()
     {
