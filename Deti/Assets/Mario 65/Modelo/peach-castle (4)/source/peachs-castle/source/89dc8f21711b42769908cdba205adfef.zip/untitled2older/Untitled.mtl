@@ -1,0 +1,928 @@
+# Rhino
+newmtl texture_2
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_2.png
+
+newmtl texture_99
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_99.png
+
+newmtl texture_98
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_98.png
+
+newmtl texture_97
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_97.png
+
+newmtl texture_96
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_96.png
+
+newmtl texture_95
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_95.png
+
+newmtl texture_94
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_94.png
+
+newmtl texture_93
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_93.png
+
+newmtl texture_92
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_92.png
+
+newmtl texture_102
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_102.png
+
+newmtl texture_101
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_101.png
+
+newmtl texture_100
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_100.png
+
+newmtl texture_88
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_88.png
+
+newmtl texture_86
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_86.png
+
+newmtl texture_87
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_87.png
+
+newmtl texture_20
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_20.png
+
+newmtl texture_57
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_57.png
+
+newmtl texture_23
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_23.png
+
+newmtl texture_91
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_91.png
+
+newmtl texture_90
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_90.png
+
+newmtl texture_89
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_89.png
+
+newmtl texture_9
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_9.png
+
+newmtl texture_85
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_85.png
+
+newmtl texture_84
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_84.png
+
+newmtl texture_83
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_83.png
+
+newmtl texture_82
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_82.png
+
+newmtl texture_81
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_81.png
+
+newmtl texture_80
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_80.png
+
+newmtl texture_8
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_8.png
+
+newmtl texture_79
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_79.png
+
+newmtl texture_78
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9829
+Ns 0
+map_Kd castle_texture_78.png
+
+newmtl texture_77
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_77.png
+
+newmtl texture_76
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_76.png
+
+newmtl texture_75
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_75.png
+
+newmtl texture_74
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_74.png
+
+newmtl texture_73
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_73.png
+
+newmtl texture_72
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_72.png
+
+newmtl texture_71
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_71.png
+
+newmtl texture_70
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_70.png
+
+newmtl texture_7
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_7.png
+
+newmtl texture_69
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_69.png
+
+newmtl texture_68
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_68.png
+
+newmtl texture_67
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_67.png
+
+newmtl texture_66
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_66.png
+
+newmtl texture_65
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_65.png
+
+newmtl texture_64
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_64.png
+
+newmtl texture_63
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_63.png
+
+newmtl texture_62
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_62.png
+
+newmtl texture_61
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_61.png
+
+newmtl texture_60
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_60.png
+
+newmtl texture_6
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_6.png
+
+newmtl texture_59
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_59.png
+
+newmtl texture_58
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_58.png
+
+newmtl texture_56
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_56.png
+
+newmtl texture_55
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_55.png
+
+newmtl texture_54
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_54.png
+
+newmtl texture_53
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_53.png
+
+newmtl texture_52
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_52.png
+
+newmtl texture_51
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_51.png
+
+newmtl texture_50
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.9900
+Ns 0
+map_Kd castle_texture_50.png
+
+newmtl texture_5
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_5.png
+
+newmtl texture_49
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_49.png
+
+newmtl texture_48
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_48.png
+
+newmtl texture_47
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_47.png
+
+newmtl texture_46
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_46.png
+
+newmtl texture_45
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_45.png
+
+newmtl texture_44
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_44.png
+
+newmtl texture_43
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_43.png
+
+newmtl texture_42
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_42.png
+
+newmtl texture_41
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_41.png
+
+newmtl texture_40
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_40.png
+
+newmtl texture_4
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_4.png
+
+newmtl texture_39
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_39.png
+
+newmtl texture_38
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_38.png
+
+newmtl texture_37
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_37.png
+
+newmtl texture_36
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_36.png
+
+newmtl texture_35
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_35.png
+
+newmtl texture_34
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_34.png
+
+newmtl texture_33
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_33.png
+
+newmtl texture_32
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_32.png
+
+newmtl texture_31
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_31.png
+
+newmtl texture_30
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_30.png
+
+newmtl texture_3
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_3.png
+
+newmtl texture_29
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_29.png
+
+newmtl texture_28
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_28.png
+
+newmtl texture_27
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_27.png
+
+newmtl texture_26
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_26.png
+
+newmtl texture_25
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_25.png
+
+newmtl texture_24
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_24.png
+
+newmtl texture_22
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_22.png
+
+newmtl texture_21
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_21.png
+
+newmtl texture_19
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_19.png
+
+newmtl texture_18
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_18.png
+
+newmtl texture_17
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_17.png
+
+newmtl texture_16
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_16.png
+
+newmtl texture_15
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_15.png
+
+newmtl texture_14
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_14.png
+
+newmtl texture_13
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_13.png
+
+newmtl texture_12
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_12.png
+
+newmtl texture_11
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_11.png
+
+newmtl texture_10
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_10.png
+
+newmtl texture_1
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_1.png
+
+newmtl texture_0
+Ka 0.0000 0.0000 0.0000
+Kd 0.5020 0.5020 0.5020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+map_Kd castle_texture_0.png
+
