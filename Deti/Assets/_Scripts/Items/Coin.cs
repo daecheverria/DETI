@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Coin's logic.
@@ -10,8 +12,10 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] private int value;
+    public TextMeshProUGUI valueText;
 
     public bool enableGravity = false;
+    public MonedaScript monedaScript;
 
     private bool addForceOnSpawn = false;
     private Vector3 direction;
@@ -59,7 +63,9 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Increment score.
-            GameManager.AddCoins(value);
+           monedaScript.CantidadMonedas += value;
+           valueText.text = monedaScript.CantidadMonedas.ToString();
+
 
             // FX
             health.Damage(99, Vector3.zero);
