@@ -8,6 +8,8 @@ public class MarioController2 : MonoBehaviour
 {
     private Rigidbody rb;
     private Animator animator;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip[] jumpSounds;
 
     int isWalkingHash = Animator.StringToHash("isWalking");
     int isRunningHash = Animator.StringToHash("isRunning");
@@ -47,7 +49,7 @@ public class MarioController2 : MonoBehaviour
         VariablesSaltos();
         rb.useGravity = false;
         speed = basespeed;
-        
+        audioSource = GetComponent<AudioSource>();
     }
     void VariablesSaltos()
     {
@@ -84,6 +86,7 @@ public class MarioController2 : MonoBehaviour
             isJumping = true;
             jumpCount++;
             animator.SetInteger(jumpCountHash, jumpCount);
+            audioSource.PlayOneShot(jumpSounds[jumpCount - 1]);
             float jumpVelocity = initialJumpVelocities[jumpCount] * 0.5f;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
         }
