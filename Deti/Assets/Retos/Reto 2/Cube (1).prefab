@@ -129,7 +129,7 @@ MonoBehaviour:
   stoppingDistance: 1
   detectionRange: 5
   player: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 7874846575297141535}
 --- !u!54 &7874846575297141535
 Rigidbody:
   m_ObjectHideFlags: 0
