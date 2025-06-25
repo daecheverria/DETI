@@ -29,6 +29,24 @@ public class CambiarScena : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Cambia al número de escena que desees, por ejemplo 1
+            CambiarScenaBoton(2);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Cambia al número de escena que desees, por ejemplo 1
+            CambiarScenaBoton(3);
+        }
+    }
+
     public void SalirJuego()
     {
         Application.Quit();
