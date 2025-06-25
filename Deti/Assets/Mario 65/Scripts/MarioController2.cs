@@ -21,7 +21,7 @@ public class MarioController2 : MonoBehaviour
     private Vector2 moveInput;
     private Vector3 moveDirection;
 
-    private float basespeed = 8f;
+    [SerializeField] private float basespeed = 8f;
     private float speed;
 
     private bool isMoving;
