@@ -10,13 +10,13 @@ public class MarioController2 : MonoBehaviour
     private Animator animator;
     private AudioSource audioSource;
     [SerializeField] AudioClip[] jumpSounds;
+    [SerializeField] private Transform cameraTransform; // Referencia a la transformación de la cámara
 
     int isWalkingHash = Animator.StringToHash("isWalking");
     int isRunningHash = Animator.StringToHash("isRunning");
     int isJumpingHash = Animator.StringToHash("isJumping");
     int jumpCountHash = Animator.StringToHash("jumpCount");
     bool isJumpingAni;
-
 
     private Vector2 moveInput;
     private Vector3 moveDirection;
@@ -41,7 +41,6 @@ public class MarioController2 : MonoBehaviour
     Dictionary<int, float> jumpGravities = new Dictionary<int, float>();
     Coroutine currentJumpCoroutine = null;
 
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,6 +49,12 @@ public class MarioController2 : MonoBehaviour
         rb.useGravity = false;
         speed = basespeed;
         audioSource = GetComponent<AudioSource>();
+        
+        // Si no se asigna manualmente, intenta encontrar la cámara principal
+        if (cameraTransform == null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
     }
     void VariablesSaltos()
     {
@@ -181,7 +186,20 @@ public class MarioController2 : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+        
+        // Calcular la dirección de movimiento relativa a la cámara
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+        
+        // Ignorar la componente Y para movimiento horizontal
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+        
+        // Combinar las direcciones con el input
+        moveDirection = forward * moveInput.y + right * moveInput.x;
+        
         isMoving = moveInput != Vector2.zero;
     }
     public void OnRun(InputAction.CallbackContext context)
