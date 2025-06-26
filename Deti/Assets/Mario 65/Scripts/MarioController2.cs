@@ -49,7 +49,7 @@ public class MarioController2 : MonoBehaviour
         rb.useGravity = false;
         speed = basespeed;
         audioSource = GetComponent<AudioSource>();
-        
+
         // Si no se asigna manualmente, intenta encontrar la cámara principal
         if (cameraTransform == null)
         {
@@ -61,10 +61,10 @@ public class MarioController2 : MonoBehaviour
         float timeToApex = maxJumpTime / 2f;
         gravity = -2 * maxJumpHeight / Mathf.Pow(timeToApex, 2);
         initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
-        float secondJumpGravity = (-2 * (maxJumpHeight*2.0f)) / Mathf.Pow((timeToApex * 1.25f), 2);
-        float secondJumpInitialVelocity = (2 * (maxJumpHeight*2.0f)) / (timeToApex * 1.25f);
-        float thirdJumpGravity = (-2 * (maxJumpHeight*3.0f)) / Mathf.Pow((timeToApex * 1.5f), 2);
-        float thirdJumpInitialVelocity = (2 * (maxJumpHeight*3.0f)) / (timeToApex * 1.5f);
+        float secondJumpGravity = (-2 * (maxJumpHeight * 2.0f)) / Mathf.Pow((timeToApex * 1.25f), 2);
+        float secondJumpInitialVelocity = (2 * (maxJumpHeight * 2.0f)) / (timeToApex * 1.25f);
+        float thirdJumpGravity = (-2 * (maxJumpHeight * 3.0f)) / Mathf.Pow((timeToApex * 1.5f), 2);
+        float thirdJumpInitialVelocity = (2 * (maxJumpHeight * 3.0f)) / (timeToApex * 1.5f);
 
 
         initialJumpVelocities.Add(1, initialJumpVelocity);
@@ -110,15 +110,18 @@ public class MarioController2 : MonoBehaviour
     void FixedUpdate()
     {
         handleAnimation();
-        rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
+        Vector3 rbVelocity = moveDirection * speed;
+        rb.linearVelocity = new Vector3(rbVelocity.x, rb.linearVelocity.y, rbVelocity.z);
+        
         if (isMoving)
         {
             Vector3 rotation;
             rotation.x = moveDirection.x;
             rotation.y = 0;
             rotation.z = moveDirection.z;
-            Quaternion targetRotation = Quaternion.LookRotation(rotation);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             rb.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+
 
         }
         handleGravity();
@@ -186,26 +189,26 @@ public class MarioController2 : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        
+
         // Calcular la dirección de movimiento relativa a la cámara
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-        
+
         // Ignorar la componente Y para movimiento horizontal
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
-        
+
         // Combinar las direcciones con el input
         moveDirection = forward * moveInput.y + right * moveInput.x;
-        
+
         isMoving = moveInput != Vector2.zero;
     }
     public void OnRun(InputAction.CallbackContext context)
     {
         isRunningPressed = context.ReadValueAsButton();
-        speed = isRunningPressed ? basespeed*2 : basespeed;
+        speed = isRunningPressed ? basespeed * 2 : basespeed;
     }
     public void OnJump(InputAction.CallbackContext context)
     {

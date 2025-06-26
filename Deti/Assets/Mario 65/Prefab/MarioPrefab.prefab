@@ -41,27 +41,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8733
+      value: 0.4653895
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8733
+      value: 0.4653895
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8733
+      value: 0.4653895
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0015583
+      value: 34.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 6.2279
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.074868
+      value: 15.907
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1ea86640f9f6c0641b93f413b220d3f1, type: 2}
     - target: {fileID: 919132149155446097, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_Name
-      value: Mario_T_Pose_0507172612_texture@Standard Walk
+      value: MarioPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 8c2186bf06e1b02469a1dad1799f36eb, type: 3}
       propertyPath: m_Controller
@@ -169,7 +169,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!136 &8155693357173096520
 CapsuleCollider:
@@ -178,7 +178,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921632560074271738}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d78a90c75b93a5a4ba69bd63d69f2490, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -364,6 +364,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f95ea373bb721e4b8b17335d22d261c, type: 3}
   - {fileID: 8300000, guid: 75f10d8a8225d2f45b8fc1e4a3b89a10, type: 3}
   - {fileID: 8300000, guid: daac7329806d43c48bc22b5e0c4c953c, type: 3}
+  cameraTransform: {fileID: 0}
+  basespeed: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
