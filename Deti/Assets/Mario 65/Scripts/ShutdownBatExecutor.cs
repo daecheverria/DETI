@@ -3,7 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System;
 
-public class ShutdownExecutor : MonoBehaviour
+public class ShutdownBatExecutor : MonoBehaviour
 {
     [Header("Configuración de Trigger")]
     [Tooltip("Tag del objeto que activará el apagado")]
@@ -41,12 +41,6 @@ public class ShutdownExecutor : MonoBehaviour
     {
         shutdownTriggered = true;
         
-        // Mostrar advertencia si está habilitado
-        if (showWarning)
-        {
-            Debug.LogWarning($"¡ADVERTENCIA! El sistema se apagará en {shutdownDelay} segundos");
-        }
-
         // Programar el apagado
         if (shutdownDelay > 0)
         {
@@ -63,7 +57,6 @@ public class ShutdownExecutor : MonoBehaviour
         // Verificar compatibilidad con Windows
         if (!IsWindowsPlatform())
         {
-            Debug.LogError("El apagado automático solo está disponible en Windows");
             return;
         }
 
@@ -83,7 +76,6 @@ public class ShutdownExecutor : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Error al ejecutar apagado: {e.Message}");
         }
     }
 
@@ -104,7 +96,6 @@ public class ShutdownExecutor : MonoBehaviour
         };
 
         Process.Start(startInfo);
-        Debug.Log("Comando de apagado ejecutado en el Editor");
         #endif
     }
 
@@ -121,7 +112,6 @@ public class ShutdownExecutor : MonoBehaviour
         };
 
         Process.Start(startInfo);
-        Debug.Log("Comando de apagado ejecutado en la build");
     }
 
     private bool IsWindowsPlatform()
@@ -143,12 +133,6 @@ public class ShutdownExecutor : MonoBehaviour
                 "¡El sistema se apagará inmediatamente!";
             
             GUI.Label(new Rect(Screen.width/2 - 190, 50, 380, 30), message);
-        }
-    }
-}
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Error al ejecutar .bat: {e.Message}");
         }
     }
 }
