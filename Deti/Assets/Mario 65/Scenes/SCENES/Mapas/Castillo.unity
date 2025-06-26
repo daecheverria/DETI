@@ -180,7 +180,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124428092}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -494,8 +494,8 @@ GameObject:
   - component: {fileID: 357996511}
   - component: {fileID: 357996510}
   - component: {fileID: 357996509}
-  - component: {fileID: 357996508}
   - component: {fileID: 357996513}
+  - component: {fileID: 357996514}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -503,19 +503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &357996508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357996507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681e382b8ca62b54d98574abc5d752cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelCarga: {fileID: 7625658814198052257, guid: 99782589d2c516c49bb5c561c9b08302, type: 3}
 --- !u!65 &357996509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -626,6 +613,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.94996464, y: 1.3970042, z: 2.95}
   m_Center: {x: 0.019982278, y: -0.048501622, z: 0}
+--- !u!114 &357996514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357996507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e9883c6109d840a8f741514ffb21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377443694
 GameObject:
   m_ObjectHideFlags: 0
