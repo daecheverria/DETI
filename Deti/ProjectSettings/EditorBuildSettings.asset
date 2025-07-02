@@ -9,14 +9,20 @@ EditorBuildSettings:
     path: Assets/Mario 65/Scenes/SCENES/Mapas/MenuPrincipal.unity
     guid: bf664d5269186594eb6f0dcaf76c30ed
   - enabled: 1
-    path: Assets/Mario 65/Scenes/SCENES/Mapas/Castillo.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Mario 65/Scenes/SCENES/Mapas/BobombBattlefield.unity
-    guid: e1aea770596c7f74a8397208ce846722
-  - enabled: 1
     path: Assets/Mario 65/Scenes/SCENES/Mapas/BackRoom.unity
     guid: 88bd213037df6ae4784932fd4cb35989
+  - enabled: 1
+    path: Assets/Mario 65/Scenes/SCENES/Mapas/Mapas DS/CastilloDentro.unity
+    guid: f7cc71ed565a70c4ab287e73494b14ae
+  - enabled: 1
+    path: Assets/Mario 65/Scenes/SCENES/Mapas/Mapas DS/CastilloFuera.unity
+    guid: 533615a4737c0954f9c249529843da34
+  - enabled: 1
+    path: Assets/Mario 65/Scenes/SCENES/Mapas/Mapas DS/MapaBomba.unity
+    guid: 6670f96b0fba9954d84a4f141b8a7ebc
+  - enabled: 1
+    path: Assets/Mario 65/Scenes/SCENES/Mapas/CargarNivel.unity
+    guid: b86822bfaa2b21d42aa864cfa6c08e48
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
