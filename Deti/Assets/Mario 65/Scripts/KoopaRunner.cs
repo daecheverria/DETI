@@ -12,10 +12,21 @@ public class KoopaRunner : MonoBehaviour
     private int currentPointIndex = 0;
     private bool isRunning = false;
     private bool isWaiting = false;
+    private bool isFinish = false;
+
+    [Header("Animación")]
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        if (animator == null)
+            animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        SetAnimationStates(false, false);
     }
 
     private void FixedUpdate()
@@ -32,6 +43,8 @@ public class KoopaRunner : MonoBehaviour
         {
             Debug.Log("¡Koopa empieza la carrera!");
             isRunning = true;
+            isFinish = false;
+            SetAnimationStates(isRunning, isFinish);
         }
     }
 
@@ -74,6 +87,17 @@ public class KoopaRunner : MonoBehaviour
         Debug.Log("Koopa llegó al final. Deteniéndose...");
         yield return new WaitForSeconds(waitTimeAtPoints);
         isRunning = false;
+        isFinish = true;
+        SetAnimationStates(isRunning, isFinish);
         isWaiting = false;
+    }
+
+    private void SetAnimationStates(bool running, bool finish)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", running);
+            animator.SetBool("isFinish", finish);
+        }
     }
 }

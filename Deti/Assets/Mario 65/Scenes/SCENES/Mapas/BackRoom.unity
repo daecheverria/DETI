@@ -17983,6 +17983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: goomba
       objectReference: {fileID: 0}
+    - target: {fileID: 6068407039401261097, guid: e602e854686672d4cb438c0b83466955, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6880515757366420115, guid: e602e854686672d4cb438c0b83466955, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -30817,14 +30821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3e7705af200b44884b5e719e167094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 50
-  roomSpacing: 10
-  wallDensity: 0.7
-  pillarDensity: 0.05
-  floorPrefab: {fileID: 5970303744171163802, guid: 452f960aab65ae74da6af6f24055dc8c, type: 3}
-  wallPrefab: {fileID: 3791969221153053836, guid: a7afe933fcc2a37429eba04bd9006507, type: 3}
-  pillarPrefab: {fileID: 3202927507493528288, guid: d251f7ed9ac35d54dafe788163e34010, type: 3}
-  spawnedObjects: []
 --- !u!64 &1493164941628272404
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72661,14 +72657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3e7705af200b44884b5e719e167094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 50
-  roomSpacing: 10
-  wallDensity: 0.7
-  pillarDensity: 0.05
-  floorPrefab: {fileID: 5970303744171163802, guid: 452f960aab65ae74da6af6f24055dc8c, type: 3}
-  wallPrefab: {fileID: 3791969221153053836, guid: a7afe933fcc2a37429eba04bd9006507, type: 3}
-  pillarPrefab: {fileID: 3202927507493528288, guid: d251f7ed9ac35d54dafe788163e34010, type: 3}
-  spawnedObjects: []
 --- !u!23 &5943394477499962640
 MeshRenderer:
   m_ObjectHideFlags: 0
