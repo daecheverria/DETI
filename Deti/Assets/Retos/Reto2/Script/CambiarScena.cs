@@ -33,7 +33,7 @@ public class CambiarScena : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Cambia al número de escena que desees, por ejemplo 1
+            // Cambia al nï¿½mero de escena que desees, por ejemplo 1
             CambiarScenaBoton(2);
         }
     }
@@ -42,7 +42,7 @@ public class CambiarScena : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Cambia al número de escena que desees, por ejemplo 1
+            // Cambia al nï¿½mero de escena que desees, por ejemplo 1
             CambiarScenaBoton(3);
         }
     }
@@ -59,13 +59,13 @@ public class CambiarScena : MonoBehaviour
     {
         panelCarga.SetActive(true); // Muestra el panel de carga
 
-        // Espera un pequeño tiempo para mostrar el panel (opcional)
+        // Espera un pequeï¿½o tiempo para mostrar el panel (opcional)
         yield return new WaitForSeconds(0.5f);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(numeroEscena);
         yield return new WaitUntil(() => asyncLoad.isDone);
 
-        // Aquí puedes ocultar el panel si la escena no destruye este objeto
+        // Aquï¿½ puedes ocultar el panel si la escena no destruye este objeto
         panelCarga.SetActive(false);
     }
 }
