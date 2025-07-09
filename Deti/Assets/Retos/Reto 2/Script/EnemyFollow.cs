@@ -5,26 +5,30 @@ public class EnemyFollow : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float stoppingDistance = 1f;
+    [SerializeField] private float stoppingDistance = 0.5f;
     [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float wanderRadius = 5f; // Radio de deambulación
+    [SerializeField] private float wanderTimer = 5f; // Tiempo entre cambios de dirección
 
     [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private Rigidbody rb;
 
     [Header("Orientation Settings")]
-    [SerializeField] private float forwardAngleOffset = 90f; // 90° para que el costado sea el frente
+    [SerializeField] private float forwardAngleOffset = 90f;
 
     [Header("Player Damage")]
-    [SerializeField] private float damageCooldown = 1f; // Tiempo entre daños
-    private float lastDamageTime; // Cuando fue el último daño
+    [SerializeField] private float damageCooldown = 1f;
+    private float lastDamageTime;
 
     [Header("Bounce Settings")]
-    [SerializeField] private float bounceForce = 100f; // Fuerza del rebote
+    [SerializeField] private float bounceForce = 100f;
 
     [Header("Enemy State")]
     private bool isDying = false;
     private Collider enemyCollider;
+    private Vector3 wanderPoint; // Punto actual de deambulación
+    private float timer; // Temporizador para cambio de dirección
 
     private void Awake()
     {
@@ -37,26 +41,99 @@ public class EnemyFollow : MonoBehaviour
             if (playerObj != null) player = playerObj.transform;
         }
 
-        // Congelar rotaciones no deseadas y movimiento en Y
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ |
                          RigidbodyConstraints.FreezePositionY;
+
+        // Establecer primer punto de deambulación
+        wanderPoint = GetRandomWanderPoint();
     }
 
     private void Update()
     {
-        if (player == null) return;
+        if (isDying) return;
 
+        if (player != null && IsPlayerDetected())
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            WanderAround();
+        }
+    }
+
+        private bool IsPlayerDetected()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        return distanceToPlayer <= detectionRange;
+    }
+
+    private void ChasePlayer()
+    {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= detectionRange && distanceToPlayer > stoppingDistance)
+        if (distanceToPlayer > stoppingDistance)
         {
             MoveTowardsPlayer();
             RotateTowardsPlayer();
         }
         else
         {
-            rb.linearVelocity = new Vector3(0, 0, 0); // Detener completamente
+            rb.linearVelocity = Vector3.zero;
         }
+    }
+
+    private void WanderAround()
+    {
+        timer += Time.deltaTime;
+
+        // Cambiar de dirección cuando se cumple el tiempo
+        if (timer >= wanderTimer)
+        {
+            wanderPoint = GetRandomWanderPoint();
+            timer = 0;
+        }
+
+        // Mover hacia el punto de deambulación
+        Vector3 direction = (wanderPoint - transform.position).normalized;
+        direction.y = 0;
+
+        if (direction.magnitude > 0.1f)
+        {
+            rb.linearVelocity = direction * moveSpeed * 0.5f; // Más lento al deambular
+
+            // Rotación hacia la dirección de movimiento
+            Quaternion targetRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, forwardAngleOffset, 0);
+            float targetYRotation = targetRotation.eulerAngles.y;
+            Quaternion flatTargetRotation = Quaternion.Euler(0, targetYRotation, 0);
+            
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                flatTargetRotation,
+                Time.deltaTime * rotationSpeed * 0.5f // Rotación más lenta
+            );
+        }
+
+        // Si llegó cerca del punto, buscar uno nuevo
+        if (Vector3.Distance(transform.position, wanderPoint) < 0.5f)
+        {
+            wanderPoint = GetRandomWanderPoint();
+        }
+    }
+
+    private Vector3 GetRandomWanderPoint()
+    {
+        // Obtener un punto aleatorio dentro del radio de deambulación
+        Vector3 randomPoint = Random.insideUnitSphere * wanderRadius;
+        randomPoint += transform.position;
+        randomPoint.y = transform.position.y; // Mantener misma altura
+
+        // Asegurarse que el punto es accesible (opcional)
+        if (Physics.Raycast(randomPoint, -Vector3.up, 2f))
+        {
+            return randomPoint;
+        }
+        return transform.position; // Si no es accesible, quedarse donde está
     }
     
     private void OnTriggerEnter(Collider other)
