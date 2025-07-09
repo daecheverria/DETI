@@ -13,7 +13,7 @@ public class Star : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Mario"))
         {
             // FX
             health.Damage(99, Vector3.zero);
