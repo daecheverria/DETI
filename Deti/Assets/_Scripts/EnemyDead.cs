@@ -6,7 +6,7 @@ public class EnemyDead : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Mario")) 
         {
             // Rebote del jugador
             Rigidbody playerRb = other.GetComponent<Rigidbody>();

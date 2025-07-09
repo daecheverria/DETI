@@ -1,97 +1,162 @@
 using UnityEngine;
+
 public class EnemyFollow : MonoBehaviour
 {
-    // =============================================
-    // Configuración de movimiento (visible en el Inspector)
-    // =============================================
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 3f;          // Velocidad de movimiento del enemigo
-    [SerializeField] private float rotationSpeed = 5f;     // Velocidad de rotación hacia el jugador
-    [SerializeField] private float stoppingDistance = 1f;  // Distancia mínima para detenerse
-    [SerializeField] private float detectionRange = 10f;   // Rango de detección del jugador
-    
-    // =============================================
-    // Referencias a otros componentes/objetos
-    // =============================================
-    [Header("References")]
-    [SerializeField] private Transform player;  // Referencia al transform del jugador
-    [SerializeField] private Rigidbody rb;     // Componente Rigidbody para física
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float stoppingDistance = 1f;
+    [SerializeField] private float detectionRange = 10f;
 
-    // =============================================
-    // Inicialización (se ejecuta al cargar el objeto)
-    // =============================================
+    [Header("References")]
+    [SerializeField] private Transform player;
+    [SerializeField] private Rigidbody rb;
+
+    [Header("Orientation Settings")]
+    [SerializeField] private float forwardAngleOffset = 90f; // 90° para que el costado sea el frente
+
+    [Header("Player Damage")]
+    [SerializeField] private float damageCooldown = 1f; // Tiempo entre daños
+    private float lastDamageTime; // Cuando fue el último daño
+
+    [Header("Bounce Settings")]
+    [SerializeField] private float bounceForce = 100f; // Fuerza del rebote
+
+    [Header("Enemy State")]
+    private bool isDying = false;
+    private Collider enemyCollider;
+
     private void Awake()
     {
-        // Busca automáticamente el Rigidbody si no está asignado
+        enemyCollider = GetComponent<Collider>();
         if (rb == null) rb = GetComponent<Rigidbody>();
-        
-        // Busca automáticamente al jugador por tag si no está asignado
+
         if (player == null)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            var playerObj = GameObject.FindGameObjectWithTag("Mario");
             if (playerObj != null) player = playerObj.transform;
         }
+
+        // Congelar rotaciones no deseadas y movimiento en Y
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ |
+                         RigidbodyConstraints.FreezePositionY;
     }
 
-    // =============================================
-    // Actualización cada frame (lógica principal)
-    // =============================================
     private void Update()
     {
-        // Si no hay jugador, salir
         if (player == null) return;
 
-        // Calcular distancia al jugador
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // Solo perseguir si el jugador está dentro del rango y fuera de distancia de parada
         if (distanceToPlayer <= detectionRange && distanceToPlayer > stoppingDistance)
         {
             MoveTowardsPlayer();
             RotateTowardsPlayer();
         }
+        else
+        {
+            rb.linearVelocity = new Vector3(0, 0, 0); // Detener completamente
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isDying) return;
+        if (other.CompareTag("Mario"))
+        {
+            isDying = true;
+
+            // Rebote del jugador
+            Rigidbody playerRb = other.GetComponent<Rigidbody>();
+            if (playerRb != null)
+            {
+                playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, 0, playerRb.linearVelocity.z); // Reinicia Y
+                playerRb.AddForce(Vector3.up * bounceForce, ForceMode.VelocityChange);
+            }
+            Destroy(gameObject, 0.02f);
+        }
     }
 
-    // =============================================
-    // Movimiento hacia el jugador (usando física)
-    // =============================================
     private void MoveTowardsPlayer()
     {
-        // Calcular dirección normalizada hacia el jugador
         Vector3 direction = (player.position - transform.position).normalized;
-        
-        // Aplicar velocidad al Rigidbody (movimiento basado en física)
+        direction.y = 0; // Eliminar componente vertical
+
+        // Aplicar velocidad manteniendo el offset de orientación
         rb.linearVelocity = direction * moveSpeed;
     }
 
-    // =============================================
-    // Rotación suave hacia el jugador
-    // =============================================
     private void RotateTowardsPlayer()
     {
-        // Calcular dirección horizontal hacia el jugador (ignorando eje Y)
         Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        
-        // Interpolación suave entre la rotación actual y la deseada
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,      // Rotación actual
-            lookRotation,            // Rotación objetivo
-            Time.deltaTime * rotationSpeed // Velocidad de rotación ajustada por tiempo
-        );
+        direction.y = 0; // Solo rotación horizontal
+
+        if (direction.magnitude > 0.1f)
+        {
+            // Calcular rotación con el offset para que el costado sea el frente
+            Quaternion targetRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, forwardAngleOffset, 0);
+
+            // Extraer solo la rotación en Y
+            float targetYRotation = targetRotation.eulerAngles.y;
+            Quaternion flatTargetRotation = Quaternion.Euler(0, targetYRotation, 0);
+
+            // Rotación suave solo en Y
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                flatTargetRotation,
+                Time.deltaTime * rotationSpeed
+            );
+        }
     }
 
-    // =============================================
-    // Visualización de rangos en el Editor (sólo para debugging)
-    // =============================================
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isDying) return;
+
+        if (collision.gameObject.CompareTag("Mario"))
+        {
+            TryDamagePlayer();
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (isDying) return;
+
+        if (collision.gameObject.CompareTag("Mario"))
+        {
+            TryDamagePlayer();
+        }
+    }
+
+    private void TryDamagePlayer()
+    {
+        if (Time.time - lastDamageTime >= damageCooldown)
+        {
+            if (PlayerStatsManager.Instance != null)
+            {
+                PlayerStatsManager.Instance.AddVidas(-1);
+                lastDamageTime = Time.time;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerStatsManager.Instance no encontrado!");
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
-        // Dibujar rango de detección (rojo)
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
-        
-        // Dibujar distancia de parada (verde)
+
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, stoppingDistance);
+
+        // Dibuja la dirección "frontal" (costado) con el offset aplicado
+        Gizmos.color = Color.blue;
+        Vector3 forwardDirection = Quaternion.Euler(0, forwardAngleOffset, 0) * transform.forward;
+        Gizmos.DrawLine(transform.position, transform.position + forwardDirection * 2);
     }
+    
 }
