@@ -20,7 +20,7 @@ public class CoinExplosionSpawn : MonoBehaviour
         {
             direction = new Vector3(Random.Range(-1f, 1f), 1, Random.Range(-1f, 1f));
             print(direction);
-            Coin coin = Instantiate(prefabToSpawn, transform.position, transform.rotation).GetComponent<Coin>();
+            MonedaMario coin = Instantiate(prefabToSpawn, transform.position, transform.rotation).GetComponent<MonedaMario>();
             coin.AddForceOnSpawn(direction * force);
         }
     }
