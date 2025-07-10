@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class MonedaMario : MonoBehaviour
 {
-    [Header("Sonido de recogida")]
-    [SerializeField] private AudioClip sonidoMoneda;
-
     private Rigidbody rb;
 
     private void Awake()
@@ -23,7 +20,7 @@ public class MonedaMario : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Si el GameObject se llama "Rojo", cuenta la colisión y guarda en PlayerPrefs
+        // Si el GameObject tiene el tag "Rojo", cuenta la colisión y guarda en PlayerPrefs
         if (CompareTag("Rojo"))
         {
             ContarColisionRojo();
@@ -36,9 +33,8 @@ public class MonedaMario : MonoBehaviour
             PlayerPrefs.SetInt("Puntos", puntosActuales + 1);
             PlayerPrefs.Save();
 
-            // Reproducir sonido en la posición de la moneda
-            if (sonidoMoneda != null)
-                AudioSource.PlayClipAtPoint(sonidoMoneda, transform.position);
+            // Reproducir sonido de moneda usando MusicManager
+            MusicManager.Instance.PlaySound("Moneda");
 
             // Destruir la moneda
             Destroy(gameObject);

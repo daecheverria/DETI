@@ -13,6 +13,9 @@ public class BobOmbEnemy : MonoBehaviour
     [SerializeField] private float explosionForce = 10f;   // Fuerza del empuje
     [SerializeField] private float explosionRadius = 5f;   // Radio del empuje
 
+    [Header("Partículas de explosión")]
+    [SerializeField] private GameObject explosionParticlesPrefab;
+
     private Transform target;
     private bool isChasing = false;
     private Rigidbody rb;
@@ -52,8 +55,8 @@ public class BobOmbEnemy : MonoBehaviour
             {
                 target = other.transform;
                 isChasing = true;
-                MusicManager.Instance.PlaySound("Perseguir");
                 Debug.Log("Bob-Omb empieza a perseguir a Mario");
+                MusicManager.Instance.PlaySound("Perseguir");
                 StartCoroutine(ChaseAndExplode());
             }
         }
@@ -124,12 +127,18 @@ public class BobOmbEnemy : MonoBehaviour
 
         Debug.Log("¡Bob-Omb explota!");
         MusicManager.Instance.PlaySound("Explotar");
+
+        // Instanciar partículas de explosión en la posición de la bomba
+        if (explosionParticlesPrefab != null)
+        {
+            Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity);
+        }
+
         // Si Mario está dentro, aplicamos empuje
         if (marioRb != null)
         {
             Vector3 explosionDir = (marioRb.position - transform.position).normalized;
             marioRb.AddForce(explosionDir * explosionForce, ForceMode.Impulse);
-            MusicManager.Instance.PlaySound("Perseguir");
         }
 
         Destroy(gameObject);
