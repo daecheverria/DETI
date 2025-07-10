@@ -17,7 +17,7 @@ public class Pintura : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Mario"))
         {
             Material mat = rend.material;
             Vector3 ripplePoint = other.transform.position; 

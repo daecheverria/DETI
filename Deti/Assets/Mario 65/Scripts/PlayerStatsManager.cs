@@ -65,6 +65,10 @@ public class PlayerStatsManager : MonoBehaviour
             AddVidas(1);
             _monedas -= 100; // Reinicia las monedas a 0 después de sumar una vida
         }
+        if (_vidas < 6)
+        {
+            AddVidas(1);
+        }
     }
 
     public int Vidas => _vidas;
