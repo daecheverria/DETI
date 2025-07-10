@@ -58,6 +58,13 @@ public class PlayerStatsManager : MonoBehaviour
     {
         _monedas += cantidad;
         OnMonedasChanged?.Invoke(_monedas);
+
+        if (_monedas >= 100)
+        {
+            // Si el jugador alcanza 100 monedas, incrementa una vida
+            AddVidas(1);
+            _monedas -= 100; // Reinicia las monedas a 0 después de sumar una vida
+        }
     }
 
     public int Vidas => _vidas;

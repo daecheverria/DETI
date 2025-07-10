@@ -20,7 +20,7 @@ public class MonedaMario : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Si el GameObject tiene el tag "Rojo", cuenta la colisión y guarda en PlayerPrefs
+        // Si el GameObject tiene el tag "Rojo", cuenta la colisiï¿½n y guarda en PlayerPrefs
         if (CompareTag("Rojo"))
         {
             ContarColisionRojo();
@@ -32,6 +32,9 @@ public class MonedaMario : MonoBehaviour
             int puntosActuales = PlayerPrefs.GetInt("Puntos", 0);
             PlayerPrefs.SetInt("Puntos", puntosActuales + 1);
             PlayerPrefs.Save();
+
+            // Sumar una moneda al jugador usando PlayerStatsManager
+            PlayerStatsManager.Instance.AddMonedas(1);
 
             // Reproducir sonido de moneda usando MusicManager
             MusicManager.Instance.PlaySound("Moneda");

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 09c49505b1c84ce4eb4ac7a60ad9c9c9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.16
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09c49505b1c84ce4eb4ac7a60ad9c9c9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.16
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09c49505b1c84ce4eb4ac7a60ad9c9c9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.16
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09c49505b1c84ce4eb4ac7a60ad9c9c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -152,12 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde3d6e46ccc6f644bf51994cd0b08a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2.05
   rotationSpeed: 5
   stoppingDistance: 0.5
-  detectionRange: 10.45
+  detectionRange: 4.05
+  wanderRadius: 3.04
+  wanderTimer: 4.44
   player: {fileID: 0}
-  rb: {fileID: 901140300608861361}
+  rb: {fileID: 0}
   forwardAngleOffset: 90
   damageCooldown: 1
   bounceForce: 25

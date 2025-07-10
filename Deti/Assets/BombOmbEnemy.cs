@@ -8,12 +8,12 @@ public class BobOmbEnemy : MonoBehaviour
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float waitTimeAtPoints = 1f;
 
-    [Header("Persecución")]
+    [Header("Persecuciï¿½n")]
     [SerializeField] private float chaseSpeed = 5f;
     [SerializeField] private float explosionForce = 10f;   // Fuerza del empuje
     [SerializeField] private float explosionRadius = 5f;   // Radio del empuje
 
-    [Header("Partículas de explosión")]
+    [Header("Partï¿½culas de explosiï¿½n")]
     [SerializeField] private GameObject explosionParticlesPrefab;
 
     private Transform target;
@@ -66,7 +66,7 @@ public class BobOmbEnemy : MonoBehaviour
     {
         if (other.CompareTag("Mario"))
         {
-            // Mario salió del rango
+            // Mario saliï¿½ del rango
             marioRb = null;
         }
     }
@@ -125,20 +125,21 @@ public class BobOmbEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        Debug.Log("¡Bob-Omb explota!");
+        Debug.Log("ï¿½Bob-Omb explota!");
         MusicManager.Instance.PlaySound("Explotar");
 
-        // Instanciar partículas de explosión en la posición de la bomba
+        // Instanciar partï¿½culas de explosiï¿½n en la posiciï¿½n de la bomba
         if (explosionParticlesPrefab != null)
         {
             Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity);
         }
 
-        // Si Mario está dentro, aplicamos empuje
+        // Si Mario estï¿½ dentro, aplicamos empuje
         if (marioRb != null)
         {
             Vector3 explosionDir = (marioRb.position - transform.position).normalized;
             marioRb.AddForce(explosionDir * explosionForce, ForceMode.Impulse);
+            PlayerStatsManager.Instance.AddVidas(-1);
         }
 
         Destroy(gameObject);
