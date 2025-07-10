@@ -23,6 +23,12 @@ public class MonedaMario : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Si el GameObject se llama "Rojo", cuenta la colisión y guarda en PlayerPrefs
+        if (CompareTag("Rojo"))
+        {
+            ContarColisionRojo();
+        }
+
         if (other.CompareTag("Mario"))
         {
             // Sumar punto al jugador usando PlayerPrefs
@@ -37,5 +43,12 @@ public class MonedaMario : MonoBehaviour
             // Destruir la moneda
             Destroy(gameObject);
         }
+    }
+
+    private void ContarColisionRojo()
+    {
+        int colisiones = PlayerPrefs.GetInt("ColisionesRojas", 0);
+        PlayerPrefs.SetInt("ColisionesRojas", colisiones + 1);
+        PlayerPrefs.Save();
     }
 }

@@ -46,11 +46,13 @@ public class BobOmbEnemy : MonoBehaviour
         {
             // Guardar la referencia al Rigidbody de Mario
             marioRb = other.GetComponent<Rigidbody>();
+            
 
             if (!isChasing)
             {
                 target = other.transform;
                 isChasing = true;
+                MusicManager.Instance.PlaySound("Perseguir");
                 Debug.Log("Bob-Omb empieza a perseguir a Mario");
                 StartCoroutine(ChaseAndExplode());
             }
@@ -121,12 +123,13 @@ public class BobOmbEnemy : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Debug.Log("¡Bob-Omb explota!");
-
+        MusicManager.Instance.PlaySound("Explotar");
         // Si Mario está dentro, aplicamos empuje
         if (marioRb != null)
         {
             Vector3 explosionDir = (marioRb.position - transform.position).normalized;
             marioRb.AddForce(explosionDir * explosionForce, ForceMode.Impulse);
+            MusicManager.Instance.PlaySound("Perseguir");
         }
 
         Destroy(gameObject);

@@ -87,11 +87,30 @@ public class MarioController2 : MonoBehaviour
                 StopCoroutine(currentJumpCoroutine);
             }
             animator.SetBool(isJumpingHash, true);
+
+            // Detener cualquier sonido de salto anterior antes de reproducir el nuevo
+            audioSource.Stop();
+
+            if (jumpCount == 0)
+            {
+                audioSource.clip = jumpSounds[0];
+                audioSource.Play();
+            }
+            else if (jumpCount == 1)
+            {
+                audioSource.clip = jumpSounds[1];
+                audioSource.Play();
+            }
+            else if (jumpCount == 2)
+            {
+                audioSource.clip = jumpSounds[2];
+                audioSource.Play();
+            }
+
             isJumpingAni = true;
             isJumping = true;
             jumpCount++;
             animator.SetInteger(jumpCountHash, jumpCount);
-            audioSource.PlayOneShot(jumpSounds[jumpCount - 1]);
             float jumpVelocity = initialJumpVelocities[jumpCount] * 0.5f;
             Debug.Log("Salto aplicado");
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
@@ -167,6 +186,17 @@ public class MarioController2 : MonoBehaviour
     {
         bool isWalking = animator.GetBool(isWalkingHash);
         bool isRunning = animator.GetBool(isRunningHash);
+
+        // Sonido de caminar/correr
+        if (isMoving && IsGrounded())
+        {
+            MusicManager.Instance.PlayLoop("Caminar");
+        }
+        else
+        {
+            MusicManager.Instance.StopLoop();
+        }
+
         if (isMoving && !isWalking)
         {
             animator.SetBool(isWalkingHash, true);
@@ -183,8 +213,6 @@ public class MarioController2 : MonoBehaviour
         {
             animator.SetBool(isRunningHash, false);
         }
-
-
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -208,6 +236,7 @@ public class MarioController2 : MonoBehaviour
     public void OnRun(InputAction.CallbackContext context)
     {
         isRunningPressed = context.ReadValueAsButton();
+        MusicManager.Instance.PlaySound("Caminar");
         speed = isRunningPressed ? basespeed * 2 : basespeed;
     }
     public void OnJump(InputAction.CallbackContext context)

@@ -1518,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MarioPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 921632560074271738, guid: 502001e94b4a8494483e0d14916606ca, type: 3}
+      propertyPath: m_TagString
+      value: Mario
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1905,11 +1909,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968516347}
-  - component: {fileID: 1968516351}
-  - component: {fileID: 1968516350}
-  - component: {fileID: 1968516349}
-  - component: {fileID: 1968516348}
   - component: {fileID: 1968516352}
+  - component: {fileID: 1968516353}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1932,90 +1933,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1968516348
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968516346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: -77.11, y: -40.78, z: 0.89}
-  m_Center: {x: 0, y: 0, z: -24.3}
---- !u!65 &1968516349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968516346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 42.7, z: 79.19}
-  m_Center: {x: 36.63, y: 0, z: 0}
---- !u!65 &1968516350
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968516346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: -77.11, y: -40.78, z: 0.89}
-  m_Center: {x: 0, y: 0, z: 39.23}
---- !u!65 &1968516351
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968516346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 39.2, z: 79.19}
-  m_Center: {x: -36.63, y: 0, z: 0}
 --- !u!65 &1968516352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2037,6 +1954,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4382362, y: 1.1406193, z: 0.9661417}
   m_Center: {x: -0.012521744, y: 0.07030964, z: 0.5343065}
+--- !u!114 &1968516353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968516346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40b52ec99dc4cc47a73bce589d12982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreEscena: MapaBomba
 --- !u!1001 &1997938335
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Mario"))
         {
             // Increment score.
            monedaScript.CantidadMonedas += value;

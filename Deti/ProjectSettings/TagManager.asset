@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Crate
   - Wall
+  - Rojo
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Piso
-  - 
+  - Tortuga
   - 
   - 
   - 
