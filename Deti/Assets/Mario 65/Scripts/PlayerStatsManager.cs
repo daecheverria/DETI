@@ -61,9 +61,8 @@ public class PlayerStatsManager : MonoBehaviour
 
         if (_monedas >= 100)
         {
-            // Si el jugador alcanza 100 monedas, incrementa una vida
-            AddVidas(1);
-            _monedas -= 100; // Reinicia las monedas a 0 después de sumar una vida
+            // Si el jugador alcanza 100 monedas, incrementa una estrella
+            AddEstrellas(1);
         }
         if (_vidas < 6)
         {

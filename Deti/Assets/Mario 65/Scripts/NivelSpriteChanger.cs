@@ -28,6 +28,6 @@ public class NivelSpriteChanger : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 }
