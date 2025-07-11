@@ -5,11 +5,12 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     private Health health;
+    [SerializeField] private NivelesSO nivelesSO;
+    public int numero;
 
     private void Start()
     {
         health = GetComponent<Health>();
-        this.gameObject.SetActive(false); // Desactiva el objeto al inicio
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,6 +20,7 @@ public class Star : MonoBehaviour
             // FX
             health.Damage(99, Vector3.zero);
             PlayerStatsManager.Instance.AddEstrellas(1);
+            nivelesSO.SetNivelCompletado(numero, true);
         }
 
         // TODO: add sfx for dropping on ground

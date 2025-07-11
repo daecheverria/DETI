@@ -28,6 +28,7 @@ public class NivelSpriteChanger : MonoBehaviour
     }
     public void OnClick()
     {
+        PlayerStatsManager.Instance.cambiarNivel(indiceNivel);
         SceneManager.LoadScene(3);
     }
 }

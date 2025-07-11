@@ -25,6 +25,7 @@ public class BobOmbEnemy : MonoBehaviour
 
     // Referencia al Mario dentro del trigger (si hay)
     private Rigidbody marioRb;
+    public GameObject estrella;
 
     private void Awake()
     {
@@ -49,7 +50,7 @@ public class BobOmbEnemy : MonoBehaviour
         {
             // Guardar la referencia al Rigidbody de Mario
             marioRb = other.GetComponent<Rigidbody>();
-            
+
 
             if (!isChasing)
             {
@@ -143,5 +144,9 @@ public class BobOmbEnemy : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+    void OnDestroy()
+    {
+        estrella.SetActive(true);
     }
 }

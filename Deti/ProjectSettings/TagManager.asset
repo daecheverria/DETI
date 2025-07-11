@@ -10,6 +10,8 @@ TagManager:
   - Crate
   - Wall
   - Rojo
+  - Teleporter
+  - Estrella
   layers:
   - Default
   - TransparentFX

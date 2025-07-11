@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -15,12 +16,22 @@ public class PlayerStatsManager : MonoBehaviour
     public static event StatChanged OnVidasChanged;
     public static event StatChanged OnEstrellasChanged;
     public static event StatChanged OnMonedasChanged;
+    public int level = 0;
+    [SerializeField] private GameObject estrella;
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        estrella = GameObject.FindWithTag("Estrella");
+        estrella.SetActive(false);
+        _monedas = 0;
+    }
 
     private void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         if (Instance != null && Instance != this)
         {
-            Debug.LogError($"¡Múltiples instancias de PlayerStatsManager! Destruyendo {gameObject.name}");
+            Debug.Log($"¡Múltiples instancias de PlayerStatsManager! Destruyendo {gameObject.name}");
             Destroy(gameObject);
             return;
         }
@@ -61,8 +72,10 @@ public class PlayerStatsManager : MonoBehaviour
 
         if (_monedas >= 100)
         {
-            // Si el jugador alcanza 100 monedas, incrementa una estrella
-            AddEstrellas(1);
+            if (estrella != null)
+            {
+                estrella.SetActive(true);
+            }
         }
         if (_vidas < 6)
         {
@@ -73,5 +86,10 @@ public class PlayerStatsManager : MonoBehaviour
     public int Vidas => _vidas;
     public int Estrellas => _estrellas;
     public int Monedas => _monedas;
+
+    public void cambiarNivel(int nuevoNivel)
+    {
+        level = nuevoNivel;
+    }
 }
     
